@@ -1,5 +1,3 @@
-import { F } from "ramda";
-
 export const levels: Level[] = [
     {
         field: [

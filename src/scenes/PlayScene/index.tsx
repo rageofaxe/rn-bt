@@ -20,7 +20,6 @@ const PlayScene = () => {
 
     return (
         <View>
-            <Text>Some txt</Text>
             <Hud />
             <Field />
         </View>

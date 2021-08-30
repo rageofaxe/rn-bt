@@ -25,6 +25,12 @@ type Level = {
     maxKeys: number;
 };
 
+type AnimatedSpriteProps = {
+    images: any[];
+    animationSpeed: number;
+    state: boolean;
+  };
+
 type Coords = [number, number]
 
 type Box = 'or' | 'xor' | null

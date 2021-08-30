@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Image, View } from "react-native";
 import styled from "styled-components/native";
 
 const box0 = require("../../../assets/box0.png");
@@ -8,11 +7,6 @@ const box2 = require("../../../assets/box2.png");
 
 const boxes = [box0, box1, box2];
 
-type AnimatedSpriteProps = {
-  images: any[];
-  animationSpeed: number;
-  state: boolean;
-};
 const AnimatedSprite = (props: AnimatedSpriteProps) => {
   const [images] = useState(props.images);
   const [index, setIndex] = useState<number>(0);
@@ -20,10 +14,13 @@ const AnimatedSprite = (props: AnimatedSpriteProps) => {
   useEffect(() => {
     let incInterval: NodeJS.Timer;
     let decInterval: NodeJS.Timer;
+    
+    console.log('>>> state', props.state)
 
     if (props.state) {
       incInterval = setInterval(() => {
         setIndex((index) => {
+          console.log('>>> inc', index)
           if (index < images.length - 1) {
             return index + 1;
           } else {
@@ -35,6 +32,7 @@ const AnimatedSprite = (props: AnimatedSpriteProps) => {
     } else {
       decInterval = setInterval(() => {
         setIndex((index) => {
+          console.log('>>> dec', index)
           if (index > 0) {
             return index - 1;
           } else {
@@ -46,8 +44,8 @@ const AnimatedSprite = (props: AnimatedSpriteProps) => {
     }
 
     () => {
-      // clearInterval(decInterval)
-      // clearInterval(incInterval)
+      clearInterval(decInterval)
+      clearInterval(incInterval)
       setIndex(0)
     }
   }, [props.state]);
