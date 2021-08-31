@@ -34,16 +34,17 @@ const Key = (props: KeyProps) => {
 };
 
 const KeyImage = styled.Image`
-  width: 48px;
-  height: 48px;
-  margin: 2px;
+  width: calc(100vw / 8);
+  height: calc(100vw / 8);
   image-rendering: pixelated;
   position: absolute;
+  border: 1px solid #444;
 `;
 
 const Wrapper = styled.TouchableOpacity`
-  width: 48px;
-  height: 48px;
+  width: calc(100vw / 8);
+  height: calc(100vw / 8);
+  margin: 0px;
 `;
 
 export default Key;

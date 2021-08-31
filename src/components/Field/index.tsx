@@ -3,22 +3,22 @@ import { View } from "react-native";
 import { useStore } from "effector-react";
 
 import { Row, Col } from "../styled";
-import { $field, $horizontal, $vertical } from "../../models/field";
+import { $field, $horizontal, $levelId, $vertical } from "../../models/field";
 import Key from "../Key";
 import Door from "../Door";
+import styled from "styled-components/native";
 
 const Field = () => {
   const field = useStore($field);
   const horizontal = useStore($horizontal);
   const vertical = useStore($vertical);
-
-  console.log(horizontal);
+  const levelId = useStore($levelId);
 
   return (
-    <View>
+    <FieldWrapper>
       <Row>
         {horizontal.map((item, i) => (
-          <Door key={i} box={item.box} state={item.state} coords={[-1, -1]} />
+          <Door key={`${levelId} - ${i}`} box={item.box} state={item.state} coords={[-1, -1]} />
         ))}
       </Row>
 
@@ -34,12 +34,14 @@ const Field = () => {
         </View>
         <Col>
           {vertical.map((item, i) => (
-            <Door key={i} box={item.box} state={item.state} coords={[-1, -1]} />
+            <Door key={`${levelId} - ${i}`} box={item.box} state={item.state} coords={[-1, -1]} />
           ))}
         </Col>
       </Row>
-    </View>
+    </FieldWrapper>
   );
 };
+
+const FieldWrapper = styled.View``
 
 export default Field;

@@ -68,14 +68,14 @@ const Door = (props: DoorProps) => {
 };
 
 const Box = styled.Image`
-  width: 48px;
-  height: 48px;
+  width: calc(100vw / 8);
+  height: calc(100vw / 8);
   image-rendering: pixelated;
 `;
 
 const Wrapper = styled.View`
-  width: 48px;
-  height: 48px;
+  width: calc(100vw / 8);
+  height: calc(100vw / 8);
 `;
 
 export default Door;

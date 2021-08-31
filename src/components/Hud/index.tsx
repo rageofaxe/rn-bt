@@ -10,7 +10,7 @@ const skull = require("../../../assets/skull.png");
 const Hud = () => {
   const keys = useStore($keys);
   return (
-    <Row>
+    <Container>
       {range(0, keys).map((i) => (
         <Skull
           key={i}
@@ -19,7 +19,7 @@ const Hud = () => {
           resizeMethod="resize"
         />
       ))}
-    </Row>
+    </Container>
   );
 };
 
@@ -28,5 +28,9 @@ const Skull = styled.Image`
   height: 32px;
   image-rendering: pixelated;
 `;
+
+const Container = styled(Row)`
+  height: 32px;
+`
 
 export default Hud;
