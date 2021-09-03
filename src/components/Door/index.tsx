@@ -14,8 +14,6 @@ const AnimatedSprite = (props: AnimatedSpriteProps) => {
   useEffect(() => {
     let incInterval: NodeJS.Timer;
     let decInterval: NodeJS.Timer;
-    
-    console.log('>>> state', props.state)
 
     if (props.state) {
       incInterval = setInterval(() => {
@@ -50,7 +48,7 @@ const AnimatedSprite = (props: AnimatedSpriteProps) => {
     }
   }, [props.state]);
 
-  return <Box source={images[index]} />;
+  return <Box source={images[index]} size={8} />;
 };
 
 const Door = (props: DoorProps) => {
@@ -67,9 +65,9 @@ const Door = (props: DoorProps) => {
   );
 };
 
-const Box = styled.Image`
-  width: calc(100vw / 8);
-  height: calc(100vw / 8);
+const Box = styled.Image<{size: number}>`
+  height: ${props => `calc(100vw / ${props.size})`};
+  width: ${props => `calc(100vw / ${props.size})`};
   image-rendering: pixelated;
 `;
 

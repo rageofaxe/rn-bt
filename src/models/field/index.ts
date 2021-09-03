@@ -1,5 +1,5 @@
 import { createStore, createEvent, combine } from "effector";
-import { flatten, transpose, pipe, reduce } from "ramda";
+import { transpose } from "ramda";
 import { xorList, orList, countBooleanField, countBooleanRow } from "../../utils";
 
 const _matrix = [

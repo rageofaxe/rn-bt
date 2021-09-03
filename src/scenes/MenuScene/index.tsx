@@ -1,18 +1,11 @@
-import React, { useCallback,  } from "react";
+import React from "react";
 import { Text, View } from 'react-native';
-import { changeRoute } from "../../models/routing";
 
-const MenuScene = () => {
-    const changeRouteCb = useCallback<(route: Route) => void>(route => {
-        changeRoute(route)
-    }, [])
-
-    console.log("render")
-
+const MenuScene = ({navigation}) => {
     return (
         <View>
-                <Text onPress={changeRouteCb.bind(this, "play")}>Play</Text>
-                <Text onPress={changeRouteCb.bind(this, "menu")}>About</Text>
+                <Text onPress={() => navigation.navigate('Play')}>Play</Text>
+                <Text onPress={() => navigation.navigate('Menu')}>About</Text>
         </View>
     );
 };
