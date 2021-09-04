@@ -1,22 +1,23 @@
-declare module "react-pixelify" {
-    declare Pixelify: any
-}
+type RootStackParamList = {
+    Play: undefined;
+    Menu: undefined;
+};
 
 type KeyProps = {
-    state: boolean,
-    coords: Coords,
-}
+    state: boolean;
+    coords: Coords;
+};
 
 type DoorProps = {
-    state: boolean,
-    box: Box,
-    coords: Coords,
-}
+    state: boolean;
+    box: Box;
+    coords: Coords;
+};
 
 type DoorType = {
-    state: boolean,
-    box: Box,
-}
+    state: boolean;
+    box: Box;
+};
 
 type Level = {
     field: boolean[][];
@@ -29,9 +30,9 @@ type AnimatedSpriteProps = {
     images: any[];
     animationSpeed: number;
     state: boolean;
-  };
+};
 
-type Coords = [number, number]
+type Coords = [number, number];
 
-type Box = 'or' | 'xor' | null
-type Route = "menu" | "play"
+type Box = "or" | "xor" | null;
+type Route = "menu" | "play";

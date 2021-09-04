@@ -7,30 +7,26 @@ import Hud from "../../components/Hud";
 import { useStore } from "effector-react";
 import { $isNextLevel, $levelId, setLevel } from "../../models/field";
 import { changeRoute } from "../../models/routing";
+import { ContainerCentered } from "../../components/styled";
 
 const PlayScene = () => {
     const isNextLevel = useStore($isNextLevel);
     const levelId = useStore($levelId);
 
     useEffect(() => {
-        if(isNextLevel) {
-            changeRoute("play")
+        if (isNextLevel) {
+            changeRoute("play");
             // setLevel(levelId + 1)
         }
-    }, [isNextLevel])
+    }, [isNextLevel]);
 
     return (
-        <Container>
+        <ContainerCentered>
             <Hud />
             <Field />
             <View />
-        </Container>
+        </ContainerCentered>
     );
 };
-
-const Container = styled.View`
-    justify-content: space-between;
-    flex: 1;
-`
 
 export default PlayScene;

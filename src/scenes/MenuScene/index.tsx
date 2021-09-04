@@ -1,12 +1,21 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { Text, View } from 'react-native';
+import { Text, View } from "react-native";
 
-const MenuScene = ({navigation}) => {
+import { ContainerCentered } from "../../components/styled";
+import Button from '../../components/Button'
+
+const MenuScene = ({
+    navigation,
+}: NativeStackScreenProps<RootStackParamList, "Menu">) => {
     return (
-        <View>
-                <Text onPress={() => navigation.navigate('Play')}>Play</Text>
-                <Text onPress={() => navigation.navigate('Menu')}>About</Text>
-        </View>
+        <ContainerCentered>
+            <View />
+            <View>
+                <Button text="Play" onPress={() => navigation.navigate("Play")} />
+            </View>
+            <View />
+        </ContainerCentered>
     );
 };
 
