@@ -27,7 +27,7 @@ type Level = {
 };
 
 type AnimatedSpriteProps = {
-    images: any[];
+    images: ImageSourcePropType[];
     animationSpeed: number;
     state: boolean;
 };

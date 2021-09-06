@@ -1,12 +1,10 @@
 import React, { useEffect } from "react";
-import styled from "styled-components/native";
 import { View } from "react-native";
 
 import Field from "../../components/Field";
 import Hud from "../../components/Hud";
 import { useStore } from "effector-react";
 import { $isNextLevel, $levelId, setLevel } from "../../models/field";
-import { changeRoute } from "../../models/routing";
 import { ContainerCentered } from "../../components/styled";
 
 const PlayScene = () => {
@@ -15,7 +13,6 @@ const PlayScene = () => {
 
     useEffect(() => {
         if (isNextLevel) {
-            changeRoute("play");
             // setLevel(levelId + 1)
         }
     }, [isNextLevel]);

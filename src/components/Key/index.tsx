@@ -11,7 +11,7 @@ const skull = require("../../../assets/skull.png");
 const sprites = [ground0, ground1];
 
 const Key = (props: KeyProps) => {
-  const [spriteId, setSprite] = useState(0);
+  const [spriteId, setSprite] = useState<number>(0);
   const keys = useStore($keys);
 
   const toggle = React.useCallback(() => {

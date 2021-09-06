@@ -31,6 +31,6 @@ const Skull = styled.Image`
 
 const Container = styled(Row)`
   height: 32px;
-`
+`;
 
 export default Hud;

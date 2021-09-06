@@ -1,6 +1,6 @@
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import React from "react";
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 import { ContainerCentered } from "../../components/styled";
 import Button from '../../components/Button'

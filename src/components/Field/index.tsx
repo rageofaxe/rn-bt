@@ -18,7 +18,12 @@ const Field = () => {
     <FieldWrapper>
       <Row>
         {horizontal.map((item, i) => (
-          <Door key={`${levelId} - ${i}`} box={item.box} state={item.state} coords={[-1, -1]} />
+          <Door
+            key={`${levelId} - ${i}`}
+            box={item.box}
+            state={item.state}
+            coords={[-1, -1]}
+          />
         ))}
       </Row>
 
@@ -34,7 +39,12 @@ const Field = () => {
         </View>
         <Col>
           {vertical.map((item, i) => (
-            <Door key={`${levelId} - ${i}`} box={item.box} state={item.state} coords={[-1, -1]} />
+            <Door
+              key={`${levelId} - ${i}`}
+              box={item.box}
+              state={item.state}
+              coords={[-1, -1]}
+            />
           ))}
         </Col>
       </Row>
@@ -42,6 +52,6 @@ const Field = () => {
   );
 };
 
-const FieldWrapper = styled.View``
+const FieldWrapper = styled.View``;
 
 export default Field;
