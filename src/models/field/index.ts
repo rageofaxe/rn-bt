@@ -7,32 +7,20 @@ import {
   countBooleanRow,
 } from "../../utils";
 
-const _matrix = [
-  [false, true, false, false],
-  [false, true, false, false],
-  [false, false, false, false],
-  [false, false, false, false],
-];
-
-const mapDoors = (box: Box, state = true): DoorType => ({ box, state });
-
-const _v: Box[] = ["xor", "xor", null, null];
-const _h: Box[] = ["xor", "xor", "or", null];
-
-const condStateFn = (box: Box, list: boolean[]) => {
-  if (box === "xor") {
-    return xorList(list);
-  } else if (box === "or") {
-    return orList(list);
+const condBoxFn = (box: Box, list: boolean[]): Box => {
+  if (box.type === "xor") {
+    return { ...box, state: xorList([...list, box.state]) };
+  } else if (box.type === "or") {
+    return { ...box, state: orList([...list, box.state]) };
   } else {
-    return false;
+    return box;
   }
 };
 
 export const $levelId = createStore<number>(0);
-export const $field = createStore<boolean[][]>(_matrix);
-export const $verticalTypeBoxes = createStore<Box[]>(_v);
-export const $horizontalTypeBoxes = createStore<Box[]>(_h);
+export const $field = createStore<Level["field"]>([]);
+export const $verticalTypeBoxes = createStore<Box[]>([]);
+export const $horizontalTypeBoxes = createStore<Box[]>([]);
 export const $maxKeys = createStore<number>(3);
 
 export const $keys = combine($maxKeys, $field, (maxKeys, field) => {
@@ -45,8 +33,7 @@ export const $vertical = combine(
   $field,
   (verticalTypeBoxes, field) => {
     return verticalTypeBoxes.map((box: Box, i) => {
-      const boxState = condStateFn(box, field[i]);
-      return mapDoors(box, boxState);
+      return condBoxFn(box, field[i]);
     });
   }
 );
@@ -57,8 +44,7 @@ export const $horizontal = combine(
   (horizontalTypeBoxes, field) => {
     const trasposedField = transpose(field);
     return horizontalTypeBoxes.map((box: Box, i) => {
-      const boxState = condStateFn(box, trasposedField[i]);
-      return mapDoors(box, boxState);
+      return condBoxFn(box, trasposedField[i]);
     });
   }
 );

@@ -1,3 +1,8 @@
+const mapBoxes = (x: Box["type"]): Box => ({
+  type: x,
+  state: false,
+});
+
 export const levels: Level[] = [
   {
     field: [
@@ -7,8 +12,9 @@ export const levels: Level[] = [
       [...new Array(5)].map((x) => false),
       [...new Array(5)].map((x) => false),
     ],
-    hBoxes: ["xor", null, null],
-    vBoxes: [null, null, "xor"],
+    hBoxes: (["xor", null, null] as Box["type"][]).map(mapBoxes),
+    // vBoxes: ([null, null, "xor"] as Box["type"][]).map(mapBoxes),
+    vBoxes: [{ state: false, type: null }, { state: true, type: "xor" }],
     maxKeys: 3,
   },
   {
@@ -16,8 +22,8 @@ export const levels: Level[] = [
       [false, false, false],
       [false, false, false],
     ],
-    hBoxes: ["xor", "xor", "xor"],
-    vBoxes: [null, null, null],
+    hBoxes: (["xor", "xor", "xor"] as Box["type"][]).map(mapBoxes),
+    vBoxes: ([null, null, null] as Box["type"][]).map(mapBoxes),
     maxKeys: 3,
   },
   {
@@ -26,8 +32,8 @@ export const levels: Level[] = [
       [false, false, false],
       [false, false, false],
     ],
-    hBoxes: ["xor", "xor", null],
-    vBoxes: [null, null, "xor"],
+    hBoxes: (["xor", "xor", null] as Box["type"][]).map(mapBoxes),
+    vBoxes: ([null, null, "xor"] as Box["type"][]).map(mapBoxes),
     maxKeys: 3,
   },
   {
@@ -36,8 +42,8 @@ export const levels: Level[] = [
       [false, true, false],
       [false, false, false],
     ],
-    hBoxes: ["xor", null, null],
-    vBoxes: [null, null, "xor"],
+    hBoxes: (["xor", null, null] as Box["type"][]).map(mapBoxes),
+    vBoxes: ([null, null, "xor"] as Box["type"][]).map(mapBoxes),
     maxKeys: 3,
   },
 ];

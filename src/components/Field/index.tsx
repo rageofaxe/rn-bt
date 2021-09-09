@@ -10,18 +10,17 @@ import styled from "styled-components/native";
 
 const Field = () => {
   const field = useStore($field);
-  const horizontal = useStore($horizontal);
-  const vertical = useStore($vertical);
+  const horizontal = useStore<Box[]>($horizontal);
+  const vertical = useStore<Box[]>($vertical);
   const levelId = useStore($levelId);
 
   return (
     <FieldWrapper>
       <Row>
-        {horizontal.map((item, i) => (
+        {horizontal.map((box, i) => (
           <Door
             key={`${levelId} - ${i}`}
-            box={item.box}
-            state={item.state}
+            box={box}
             coords={[-1, -1]}
           />
         ))}
@@ -38,11 +37,10 @@ const Field = () => {
           ))}
         </View>
         <Col>
-          {vertical.map((item, i) => (
+          {vertical.map((box, i) => (
             <Door
               key={`${levelId} - ${i}`}
-              box={item.box}
-              state={item.state}
+              box={box}
               coords={[-1, -1]}
             />
           ))}

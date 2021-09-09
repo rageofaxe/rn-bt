@@ -9,11 +9,12 @@ const box2 = require("../../../assets/box2.png");
 const boxes = [box0, box1, box2];
 
 const Door = (props: DoorProps) => {
+  console.log('DoorProps', props.box)
   return (
     <Wrapper>
-      {props.box && (
+      {props.box.type && (
         <AnimatedSprite
-          state={props.state}
+          state={props.box.state}
           images={boxes}
           animationSpeed={42}
         />
