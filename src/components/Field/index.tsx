@@ -8,7 +8,11 @@ import Key from "../Key";
 import Door from "../Door";
 import styled from "styled-components/native";
 
-const Field = () => {
+type FieldProps = {
+  mode: GameMode
+}
+
+const Field = (props: FieldProps) => {
   const field = useStore($field);
   const horizontal = useStore<Box[]>($horizontal);
   const vertical = useStore<Box[]>($vertical);

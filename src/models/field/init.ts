@@ -7,6 +7,8 @@ import {
   $maxKeys,
   $levelId,
   incLevel,
+  $mode,
+  chooseMode,
 } from "./";
 import { levels } from "./levels";
 
@@ -25,4 +27,6 @@ $levelId
   .on(setLevel, (_, payload) => payload)
   .on(incLevel, (level) => level + 1);
 
-setLevel(0);
+$mode.on(chooseMode, (_, payload) => payload)
+
+setLevel(1);

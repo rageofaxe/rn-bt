@@ -63,6 +63,9 @@ export const $isNextLevel = combine(
   }
 );
 
+export const $mode = createStore<GameMode>(null)
+
 export const toggleCell = createEvent<Coords>("toggle_cell");
 export const setLevel = createEvent<number>("set_level");
 export const incLevel = createEvent("inc_level");
+export const chooseMode = createEvent<GameMode>("choose_mode")

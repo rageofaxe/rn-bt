@@ -13,6 +13,8 @@ type DoorProps = {
   coords: Coords;
 };
 
+type GameMode = "random" | "tutorial" | null
+
 type Level = {
   field: boolean[][];
   hBoxes: Box[];

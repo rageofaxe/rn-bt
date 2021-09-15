@@ -21,6 +21,7 @@ const ButtonWrapper = styled.TouchableOpacity<Pick<ButtonProps, "onPress">>`
   width: 60vw;
   justify-content: center;
   align-items: center;
+  margin-bottom: 1em
 `;
 
 const Text = styled.Text`
